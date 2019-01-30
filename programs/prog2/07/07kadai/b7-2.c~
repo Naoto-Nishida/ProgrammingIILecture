@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "headerB.h"
+
+extern int LoadLinearSystem(const char *filename, Matrix *A, Vector *b);
+
+
+int main(int argc, char *argv[]){
+  Matrix A;
+  Vector b, b2, b3;
+  int *c;
+  int judge, i, err = 0;
+  
+
+  if(argc != 2){
+    printf("wrong command,\n ./b7-2 {filename}\n");
+    return 0;
+  }
+
+  if((judge = LoadLinearSystem(argv[1], &A, &b)) == 0){
+    printf("どんまい\n");
+    return 0;
+  }
+  
+  printf("\nMatrix A(%d, %d)\n", A.rows, A.cols);
+  FprintMatrix(stdout, &A);
+  printf("\nVector b (%d)\n", b.n);
+  FprintVector(stdout, &b);
+  CopyVector(&b, &b2);
+
+  if(SolveGaussJordan(&A, &b) == 1){
+    printf("\n\nAnswer: x(%d)\n", b.n);
+    for(i=0; i<(b.n); i++){
+      printf("%lf ", *(b.elems + i));
+  //    printf("AAA!");
+    }
+    printf("\n");
+  }
+  else{
+    printf("SOMETHING IS WRONG!!\n");
+  }
+  printf("AAA!");
+//ここから下にメモリ不正アクセス
+  MultMatrixVector(&A, &b, &b3);
+
+  for(i=0; i<(b.n); i++){
+    *(c+i) = *(b.elems + i) - *(b2.elems + i);
+    err += (*(c+i))*(*(c+i));
+  }
+
+
+  printf("Error: %d\n", err);
+  
+
+
+  return 1;
+}
+

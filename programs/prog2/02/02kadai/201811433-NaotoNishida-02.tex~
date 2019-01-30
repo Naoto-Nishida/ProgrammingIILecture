@@ -1,0 +1,81 @@
+\documentclass[10pt,a4paper]{jsarticle}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\lhead{プログラミング実習2レポート（第2回）}
+\rhead{学籍番号:201811433 氏名:西田　直人}
+\cfoot{\thepage/\pageref{LastPage}}
+
+\pagestyle{fancy}
+
+\title{プログラミング2レポート課題第2回}
+\author{西田直人}
+
+\begin{document}
+%\markright{プログラミング実習1Aレポート（第１回）　学籍番号:201811433 氏名:西田直人}
+%\maketitle
+\begin{center}
+{\LARGE プログラミング2レポート課題第2回} \\
+\large
+西田直人 \\ 2018年11月27日
+\end{center}
+\normalsize
+\section{課題2-1}
+\subsection{誤っている箇所}
+\noindent31行目：for文内部を｛｝で囲んでいない。\\
+24行目：配列のアドレスを変更しようとしている。要素をinArrayからoutArrayに移したいなら要素ごとに＝で結ぶべき。
+
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a2-1.c}
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P048:~/prog2/02$ cc -o a2-1 a2-1.c
+  s1811433@7C202-P048:~/prog2/02$ ./a2-1
+  array a[]:
+  1 1 2 3 5
+  array b[]:
+  1 1 2 3 5
+  reverse of a[]:
+  5 3 2 1 1 
+  s1811433@7C202-P048:~/prog2/02$
+  
+\end{lstlisting}
+
+
+\section{課題2-2}
+\subsection{誤っている箇所}
+\noindent24行目：i=1となってしまっているのでa[0]の値が計算に含まれていない。\\
+24行目：for文の中身が{}でくくられていない。\\
+25行目：a[0]のアドレスの値を１ずつ増やしながらsumに加算しているという内容になってしまっている。\\
+20行目：sumが整数型になってしまっているので、sum/nが小数点以下切り捨てになってしまっている。
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a2-2.c}
+
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P048:~/prog2/02/02kadai$ cc -o a2-2 a2-2.c
+  s1811433@7C202-P048:~/prog2/02/02kadai$ ./a2-2
+  average of a[]: 2.8
+  max value of a[]: 7
+  min value of a[]: -3
+  diff of max and min: 10
+  s1811433@7C202-P048:~/prog2/02/02kadai$
+  
+\end{lstlisting}
+
+\section{課題2-3}
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a2-3.c}
+
+\subsection{result}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  
+\end{lstlisting}
+
+
+
+\end{document}

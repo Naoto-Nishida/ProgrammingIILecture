@@ -1,0 +1,7 @@
+main: csv_dumpex.o five_opt_quizex.o five_opt_quiz2ex.o main.o
+	cc -o main csv_dumpex.o five_opt_quizex.o five_opt_quiz2ex.o main.o
+.c.o:	# サフィックスルール。拡張子 .c から拡張子 .o のファイルを作るためのルール。
+	cc -c $< header.h
+
+run : main
+	./main quiz_data_3.csv

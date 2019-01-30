@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(void){
+  int x, y;
+  double z;
+  x = 4;
+  y = 3;
+  z = x / y;
+  printf("%f\n", z);
+
+  return 0;
+}

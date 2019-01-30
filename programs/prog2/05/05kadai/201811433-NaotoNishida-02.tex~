@@ -1,0 +1,52 @@
+\documentclass[10pt,a4paper]{jsarticle}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{comment}
+
+\lhead{プログラミング実習IIレポート（第 5回）}
+\rhead{学籍番号:201811433 氏名:西田　直人}
+\cfoot{\thepage/\pageref{LastPage}}
+
+\pagestyle{fancy}
+
+\title{プログラミングII実習レポート課題第5回}
+\author{西田直人}
+
+\begin{document}
+%\markright{プログラミング実習1Aレポート（第１回）　学籍番号:201811433 氏名:西田直人}
+%\maketitle
+\begin{center}
+{\LARGE プログラミング実習IIレポート課題第5回} \\
+\large
+西田直人 \\ 2018年12月23日
+\end{center}
+\normalsize
+\section{課題5-1,5-2}
+
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a5.c}
+
+\subsection{result}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+     
+\end{lstlisting}
+
+
+
+\begin{comment}
+\section{課題1-2}
+
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a1-2.c}
+
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  
+\end{lstlisting}
+\end{comment}
+
+
+\end{document}

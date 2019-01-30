@@ -1,0 +1,27 @@
+#include <stdio.h>
+#define MAX_IMAGE_SIZE 512
+
+int main(int argc, char *argv[]){
+  int i, j, w, h, dummy;
+  //unsigned char str[sizeof(unsigned char)];
+  int tmp;
+  char header[3];
+  FILE *fp;
+
+  fp = fopen(argv[1],"rb");
+
+  fscanf(fp, "%s\n%d %d\n%d\n", header, &w, &h, &dummy);
+
+  printf("image size: %dX%d\n", w, h);
+
+  for(i=0; i<h; i++){
+    for(j=0; j<w; j++){
+      fscanf(fp, "%d", &tmp);
+      printf("(%d,%d) gray = %d\n", j, i, tmp);
+    }
+  }
+  
+
+
+  return 0;
+}

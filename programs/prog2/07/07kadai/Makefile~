@@ -1,0 +1,16 @@
+aLoadSave.o: aLoadSave.c 
+	cc -c aLoadSave.c
+gauss.o: gauss.c
+	cc -c gauss.c
+aStructs.o: aStructs.c
+	cc -c aStructs.c
+a7-1.o: a7-1.c headerA.h
+	cc -c a7-1.c headerA.h
+b7-1.o: b7-1.c headerA.h
+	cc -c b7-1.c headerA.h
+a7-1: a7-1.o aLoadSave.o aStructs.o
+	cc -o a7-1 a7-1.o aLoadSave.o aStructs.o
+b7-1: b7-1.o aLoadSave.o aStructs.o gauss.o
+	cc -o b7-1 b7-1.o aLoadSave.o aStructs.o gauss.o
+runA:
+	./a7-1

@@ -1,0 +1,8 @@
+curve: curve.o ColoredCurve.o
+	cc -o curve curve.o ColoredCurve.o -L. -I. -lglut -lGL -lGLU -lXi -lXrandr -lm
+ColoredCurve.o: ColoredCurve.c glut.h ColoredCurve.h
+	cc -c ColoredCurve.c ColoredCurve.h -L. -I. -lglut -lGL -lGLU -lXi -lXrandr -lm
+curve.o: curve.c ColoredCurve.h glut.h
+	cc -c curve.c ColoredCurve.h glut.h -L. -I. -lglut -lGL -lGLU -lXi -lXrandr -lm
+run:
+	./curve

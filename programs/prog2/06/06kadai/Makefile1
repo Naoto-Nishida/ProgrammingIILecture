@@ -1,0 +1,11 @@
+coloredcircle: circles.o ColoredCircle.o
+	cc -o coloredcircle circles.o ColoredCircle.o -lm -L. -I. -lglut -lGL -lGLU -lXi -lXrandr
+
+.c.o:	# サフィックスルール。拡張子 .c から拡張子 .o のファイルを作るためのルール。
+	cc -c $<
+
+circles.o: circles.c ColoredCircle.h
+	cc -c circles.c ColoredCircle.h -lm
+
+run: coloredcircle
+	./coloredcircle

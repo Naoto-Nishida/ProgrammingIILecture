@@ -1,0 +1,87 @@
+\documentclass[10pt,a4paper]{jsarticle}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\lhead{プログラミング実習2レポート（第１回）}
+\rhead{学籍番号:201811433 氏名:西田　直人}
+\cfoot{\thepage/\pageref{LastPage}}
+
+\pagestyle{fancy}
+
+\title{プログラミング2レポート課題第1回}
+\author{西田直人}
+
+\begin{document}
+%\markright{プログラミング実習1Aレポート（第１回）　学籍番号:201811433 氏名:西田直人}
+%\maketitle
+\begin{center}
+{\LARGE プログラミング2レポート課題第1回} \\
+\large
+西田直人 \\ 2018年11月13日
+\end{center}
+\normalsize
+\section{課題1-1}
+\subsection{誤っている箇所}
+26行目、readInteger関数に引数として変数のアドレスを渡さないといけないのに、変数の中身、しかも初期化もされていないようなものを渡そうとしている。\\
+6行目、scanfの引数として変数のアドレスを渡さないといけないのに、あろうことかmain関数のiの中身を渡そうとしている。\\
+27行目、引数２つ目は整数型の値を渡さないといけないのに、iのアドレスを渡している。\\
+
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a1-1.c}
+
+\subsection{result}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P048:~/prog2/01/01kadai$ cc -o a1-1 a1-1.c
+  s1811433@7C202-P048:~/prog2/01/01kadai$ ./a1-1
+  input integer: 100
+  s1811433@7C202-P048:~/prog2/01/01kadai$ cat test.txt
+  input: 100
+  s1811433@7C202-P048:~/prog2/01/01kadai$
+  s1811433@7C202-P048:~/prog2/01/01kadai$ ./a1-1
+  input integer: 114514
+  s1811433@7C202-P048:~/prog2/01/01kadai$ cat test.txt
+  input: 114514
+  s1811433@7C202-P048:~/prog2/01/01kadai$
+  
+\end{lstlisting}
+
+
+\section{課題1-2}
+
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a1-2.c}
+
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P048:~/prog2/01/01kadai$ cc -o a1-2 a1-2.c
+  s1811433@7C202-P048:~/prog2/01/01kadai$ ./a1-2
+  Input two positive number:5 2
+  Quotient is 2
+  Remainder is 1
+  s1811433@7C202-P048:~/prog2/01/01kadai$ ./a1-2
+  Input two positive number:-1 3
+  Input two POSITIVE number!!:0 2
+  Input two POSITIVE number!!:6 3
+  Quotient is 2
+  Remainder is 0
+  s1811433@7C202-P048:~/prog2/01/01kadai$
+  
+\end{lstlisting}
+
+\section{課題1-3}
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{}
+
+\subsection{result}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+
+
+\end{lstlisting}
+
+
+
+\end{document}

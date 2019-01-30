@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+#define BUFSIZE 256
+ 
+int main(void)
+{
+    char buf[BUFSIZE];
+    char *name;
+    int birth;
+ 
+    printf("Input your name => ");
+    fgets(buf, BUFSIZE, stdin);
+ 
+    buf[strlen(buf)-1] = '\0';
+    name = (char *)malloc(sizeof(char)*(strlen(buf)+1));
+    strcpy(name, buf);
+ 
+    printf("Input your birth year => ");
+    fgets(buf, BUFSIZE, stdin);
+ 
+    birth = atoi(buf);
+ 
+    putchar('\n');
+    printf("Your name: %s\n", name);
+    printf("Your birth year: %d\n", birth);
+ 
+    free(name); /* 動的に確保したメモリの解放 */
+ 
+    return 0;
+}

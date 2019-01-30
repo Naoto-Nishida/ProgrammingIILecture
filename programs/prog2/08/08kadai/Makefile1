@@ -1,0 +1,8 @@
+a8-1: a8-1.o 8-1Functions.o
+	cc -o a8-1 a8-1.o 8-1Functions.o
+8-1Functions.o: 8-1Functions.c header1.h
+	cc -c 8-1Functions.c header1.h
+a8-1.o: a8-1.c header1.h
+	cc -c a8-1.c header1.h
+run:
+	./a8-1

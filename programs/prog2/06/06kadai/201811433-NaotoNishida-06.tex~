@@ -1,0 +1,190 @@
+\documentclass[10pt,a4paper]{jsarticle}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\lhead{プログラミング実習IIレポート（第6回）}
+\rhead{学籍番号:201811433 氏名:西田　直人}
+\cfoot{\thepage/\pageref{LastPage}}
+
+\pagestyle{fancy}
+
+\title{プログラミングII実習レポート課題第6回}
+\author{西田直人}
+
+\begin{document}
+%\markright{プログラミング実習1Aレポート（第１回）　学籍番号:201811433 氏名:西田直人}
+%\maketitle
+\begin{center}
+{\LARGE プログラミング実習IIレポート課題第6回} \\
+\large
+西田直人 \\ 2018年1月2日
+\end{center}
+\normalsize
+\section{課題6-1}
+\subsection{誤っている箇所}
+
+\subsection{source}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single,breaklines=true]//the definition of struct ColoredCircle
+
+  typedef struct ColoredCircle {
+    /* 自分で定義する。必要なのは点の座標 xi, yi, 半径 radius および色情報 r, g, b */
+  int xi, yi;
+  int radius;
+  unsigned char r, g, b;
+
+  } ColoredCircle;
+
+  //display function
+
+  void display(void)
+{
+    int i;
+ 
+    glClearColor(1.0, 1.0, 1.0, 1.0);   /* ウィンドウを消去するときの色を設定 */
+    /* ウィンドウを消去 … glClearColor で指定した色で塗りつぶし */
+    glClear(GL_COLOR_BUFFER_BIT);
+ 
+    /* for 文で円の個数だけ drawCircle 関数を呼び出して円を描画。自分で実装 */
+    for(i=0; i<g_NumCircles; i++){
+      drawCircle(g_ColoredCircles[i].xi, g_ColoredCircles[i].yi, g_ColoredCircles[i].radius, g_ColoredCircles[i].r, g_ColoredCircles[i].g, g_ColoredCircles[i].b);
+    }
+ 
+    glutSwapBuffers();  /* ここまで指定した描画命令をウィンドウに反映 */
+}
+
+//ColoredCircle.c
+
+#include <stdio.h>
+#include <math.h>
+#include "ColoredCircle.h"
+
+extern void drawCircle(int xi, int yi, int radius, unsigned char r, unsigned char g, unsigned char b);
+extern void display(void);
+
+
+void SetColoredCircle(ColoredCircle *c, int xi, int yi, int radius, unsigned char r, unsigned char g, unsigned char b){
+  c->xi = xi;
+  c->yi = yi;
+  c->radius = radius;
+  c->r = r;
+  c->g = g;
+  c->b = b;
+}
+
+
+int SaveColoredCircles(const char *filename, int n, ColoredCircle circles[]){
+  FILE *fp;
+  int i, printok;
+  
+  if ((fp = fopen(filename, "w")) == NULL) {
+    fprintf(stderr, "%sのオープンに失敗しました.\n", filename);
+    return 0;
+  }
+
+  for(i=0; i < n; i++){
+    printok = fprintf(fp, "position:(%d, %d) radius:%d color(%d, %d, %d)\n", circles[i].xi, circles[i].yi, circles[i].radius, (int)circles[i].r, (int)circles[i].g, (int)circles[i].b);
+      if ( printok < 0 ) {
+        fprintf(stderr, "[%d]ファイルの書込みに失敗しました.\n", i);
+        fclose(fp);
+        return 0;
+      }
+  }
+  
+  fclose(fp);
+  return 1;
+}
+
+int LoadColoredCircles(const char *filename, int *n, ColoredCircle circles[]){
+  FILE *fp;
+  int i=0, R, G, B;
+
+  if ((fp = fopen(filename, "r")) == NULL) {
+    fprintf(stderr, "%sのオープンに失敗しました.\n", filename);
+    return 0;
+  }
+
+
+  while(fscanf(fp, "position:(%d, %d) radius:%d color(%d, %d, %d)\n", &circles[i].xi, &circles[i].yi, &circles[i].radius, &R, &G, &B) != EOF){
+    circles[i].r = (unsigned char)R;
+    circles[i].g = (unsigned char)G;
+    circles[i].b = (unsigned char)B;
+    i++;
+    (*n)++;
+  }
+
+
+  fclose(fp);
+  return 1;
+
+}
+
+//Makefile
+
+coloredcircle: circles.o ColoredCircle.o
+	cc -o coloredcircle circles.o ColoredCircle.o -lm -L. -I. -lglut -lGL -lGLU -lXi -lXrandr
+
+.c.o:	# サフィックスルール。拡張子 .c から拡張子 .o のファイルを作るためのルール。
+	cc -c $<
+
+circles.o: circles.c ColoredCircle.h
+	cc -c circles.c ColoredCircle.h -lm
+
+run: coloredcircle
+	./coloredcircle
+     
+\end{lstlisting}
+
+\subsection{result}
+
+\begin{figure}[h]
+  \includegraphics[scale=1]{a.png}
+  \caption{最初}
+  \label{fig:sutehage}
+
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[scale=1]{b.png}
+  \caption{数回クリックしたあとにsを押した}
+  \label{fig:sutehage}
+
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[scale=1]{c.png}
+  \caption{スペースキーを押した}
+  \label{fig:sutehage}
+
+\end{figure}
+\begin{figure}[h]
+  \includegraphics[scale=1]{d.png}
+  \caption{ｌを押した}
+  \label{fig:sutehage}
+
+\end{figure}
+
+
+
+\section{課題6-2}
+
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a1-2.c}
+
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  
+\end{lstlisting}
+
+\section{課題1-3}
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a1-3.c}
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single,breaklines=true]
+     
+\end{lstlisting}
+
+
+\end{document}

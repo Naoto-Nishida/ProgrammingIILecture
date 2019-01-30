@@ -1,0 +1,9 @@
+b7-2: b7-2.o matrix.o vector.o linear.o
+	cc -o b7-2 b7-2.o matrix.o vector.o linear.o
+b7-2.o: b7-2.c headerB.h
+	cc -c b7-2.c headerB.h
+linear.o: linear.c headerB.h
+	cc -c linear.c headerB.h
+.c.o:	# サフィックスルール。拡張子 .c から拡張子 .o のファイルを作るためのルール。
+	cc -c $<
+

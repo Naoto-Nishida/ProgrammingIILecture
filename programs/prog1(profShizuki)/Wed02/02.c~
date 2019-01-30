@@ -1,0 +1,6 @@
+#include <stdio.h>
+
+
+void main(){
+  double A;
+  printf("正の長さAを入力してください :")

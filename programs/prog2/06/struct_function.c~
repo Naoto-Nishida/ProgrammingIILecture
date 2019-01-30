@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+  
+typedef struct Person {
+    char name[256];
+    int age;
+} Person;
+ 
+void SetPerson( /* 自分で実装 */ );
+void PrintPerson( /* 自分で実装 */ );
+void CopyPerson( /* 自分で実装 */ );
+ 
+int main(void)
+{
+    Person p1, p2;
+    char name[256];
+ 
+    /* 値をセット */
+    printf("Person 1 set\n");
+    SetPerson( /* 自分で実装 */ );   /* 関数の引数として "Yamada", 41 を与える…ハードコーディングでよい */
+ 
+    PrintPerson( /* 自分で実装 */ ); /* 構造体のメンバ変数を printf 関数で出力 */
+    putchar('\n');
+ 
+    printf("Person 2 copied\n");
+    CopyPerson( /* 自分で実装 */ );  /* 2 つの構造体の一方のメンバ変数をもう一方のメンバ変数にコピー */
+ 
+    PrintPerson( /* 自分で実装 */ );
+    putchar('\n');
+     
+    printf("Person 2 set\n");           /* Person2の情報を"Nagata", 63に書き換え */
+    SetPerson( /* 自分で実装 */ );
+    PrintPerson( /* 自分で実装 */ );
+  
+    return 0;
+}
+ 
+void SetPerson( /* 自分で実装 */ )
+{
+    /* 自分で実装 */
+}
+ 
+void PrintPerson( /* 自分で実装 */ )
+{
+    /* 自分で実装 */
+}
+ 
+void CopyPerson( /* 自分で実装 */ )
+{
+    /* 自分で実装 */
+}

@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+void main(){
+  double t;
+  
+  printf("PUT A TEMPERATURE IN F: ");
+  scanf("%lf", &t);
+  printf("C=%lf\n", 5*(t-32) / 9);
+}

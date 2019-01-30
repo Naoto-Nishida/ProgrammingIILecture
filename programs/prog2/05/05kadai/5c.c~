@@ -1,0 +1,69 @@
+int load_pgm(const char *filename, int *w, int *h, unsigned char *buf){
+  FILE *fpl;
+  char header[3];
+  int i, dummy, c, count;
+
+  fpl = fopen(filename, "rb");
+
+
+  if(fpl == NULL){
+    printf("Error: original file missing.");
+    return 0;
+  }
+  fscanf(fpl, "%s\n%d %d\n%d\n", header, w, h, &dummy);
+  fseek(fpl, 0, SEEK_SET);
+
+  // printf("%s", header);
+
+  count=0;
+  
+  while (1) {    // 無限ループ
+    c = fgetc(fpl);     // ファイルから1バイト読み込んで c に入れる
+    if (c == EOF) {           // もしファイルの終端に達していたら
+      break;                  // while ループから抜け出す
+    }
+    count++;
+  }
+  
+  fseek(fpl, 0, SEEK_SET);
+
+  if(strcmp(header, "P2") == 0){
+    for(i=0; i<count; i++){  
+	fscanf(fpl, "%c", (buf+i));
+    }
+    
+    //printf("%d %d", *w, *h);
+    //printf("2");
+  }
+  else{
+    fread(buf, sizeof(unsigned char), count, fpl);
+    //printf("3");
+  }
+
+  //printf("%d %d , ", sizeof(buf), count);
+
+  *w = count;  // sikatanai node w ni filesize wo ageta.
+    
+  fclose(fpl);
+  return 1;
+}
+
+
+int save_pgm(const char *filename, int w, int h, unsigned char *buf){
+
+  FILE *fps;
+
+
+  fps = fopen(filename, "wb+");
+
+  if(fps == NULL){
+    printf("Error: copy file missing.");
+    return 0;
+  }
+
+  fwrite(buf, sizeof(unsigned char), w, fps);
+  
+
+  fclose(fps);
+  return 1;
+}

@@ -1,0 +1,29 @@
+#include <stdio.h>
+#define MAX 255
+
+int main(){
+  int i, buffer;
+  int *stradress[5];
+  char str[MAX];
+
+  printf("Input:\n");
+
+  for(i=0; i<5; i++){
+    printf("string %d =", i+1);
+    scanf("%s", str[i][MAX]);
+    stradress[i]=&str[i];
+  }
+
+  printf("Output\n");
+
+  for(i=0; i<5; i++){
+    for(j=i+1; j<5; j++){
+      if(strlen(*stradress[i]) > strlen(*stradress[i])){
+	buffer = st
+
+  for(i=0; i<5; i++){
+    printf("")
+  
+
+  return 0;
+}

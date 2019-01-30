@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <ctype.h>
+ 
+int main(void)
+{
+    int i;
+    char c;
+ 
+    printf("0: isalpha, 1: isdigit, 2: islower, 3: isupper ? ");
+    scanf("%d", &i);
+ 
+    printf("char = ");
+    scanf(" %c", &c);
+ 
+    switch (i) {
+    case 0:
+        if (isalpha((int)c)) printf("'%c' is an alphabet.\n", c);
+        else printf("'%c' is NOT an alphabet.\n", c);
+        break;
+    case 1:
+        if (isdigit((int)c)) printf("'%c' is a digit.\n", c);
+        else printf("'%c' is NOT a digit.\n", c);
+        break;
+    case 2:
+        if (islower((int)c)) printf("'%c' is lowercase.\n", c);
+        else printf("'%c' is NOT lowercase.\n", c);
+        break;
+    case 3:
+        if (isupper((int)c)) printf("'%c' is uppercase.\n", c);
+        else printf("'%c' is NOT uppercase.\n", c);
+        break;
+    default:
+        printf("Error: unknown input.\n");
+        break;
+    }
+ 
+    return 0;
+}

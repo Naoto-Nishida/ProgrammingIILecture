@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>第 3 回レポート課題 - 2018 年度プログラミング実習 II -</title><meta http-equiv="Content-Type" content="text/html;charset=utf-8"/><link rel="canonical" href="http://archive.today/CZdLF"/></head><body style="margin:0;background-color:white;width:1024px"><div class="html1" style="width: 1024px;text-align: left;overflow-x: auto;overflow-y: auto; background-color: rgba(0, 0, 0, 0);position: relative;min-height: 3501px;; z-index: 0"><div class="html" style="text-align:left;overflow-x:visible;overflow-y:visible;">
+
+
+
+
+
+
+
+
+
+
+
+<div class="body" style="vertical-align:bottom;min-height:3472px;color:rgb(0, 0, 0);text-align:left;counter-reset:chapter 0;overflow-x:visible;overflow-y:visible;margin: 8px; "><h1 style="text-align:left;background-color:rgb(187, 187, 238);counter-increment:chapter 1;counter-reset:section 0;border-width:1px;border-style:solid;padding:5px 3px 3px 0.5em;border-color:rgb(204, 204, 255) rgb(102, 102, 153) rgb(102, 102, 153) rgb(204, 204, 255)"><span style="counter-reset:chapter 3;">第, counter(2.31038e-317), '回 '</span>レポート課題</h1>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;">下記の「課題 3-1」〜「課題 3-4」を解き、課題レポート提出法 (実習のトップページに記載) に従って提出しなさい。</div>
+
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;">なお、「課題 3-5」はチャレンジ問題である。これを解かなくても（通常の課題のみの解答でも）満点を取ることが可能であるが、正しく解けた場合には加点する。ただし、通常の課題を解かないでチャレンジ課題を解いても採点対象とはならない。</div>
+<h3 style="text-align:left;background-color: rgb(221, 187, 187); border-width: 1px; border-style: solid; padding: 5px 3px 3px 0.5em; border-color: rgb(255, 204, 204) rgb(153, 102, 102) rgb(153, 102, 102) rgb(255, 204, 204); "><span style="display:inline;counter-increment:section 1;counter-reset:chapter 3">課題 ', counter(2.31065e-317), '-', counter(2.31064e-317), ' </span></h3>
+<ol style="text-align:left;list-style-type:lower-alpha;">
+<li style="text-align:left;line-height:130%;">
+5 つの文字列を入力させ、長さが短いものから順に出力するプログラム[a3-1.c]を作成せよ。 <br style="text-align:left;"/>
+ただし、 <ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">長さが同じ文字列の順は任意でよい。</li>
+<li style="text-align:left;line-height:130%;">練習問題 3-4c のように、文字列の先頭のアドレスをポインタで保持し、そのポインタを使って順序を入れ替えること。</li>
+<li style="text-align:left;line-height:130%;">文字列を格納した配列を一文字ずつ書き換えたり、<code style="text-align:left;">strcpy()</code>
+関数などで書き換えたりしないこと。</li>
+</ul>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;"><strong style="text-align:left;">[実行例]</strong></div>
+<pre style="text-align:left;background-color: rgb(240, 248, 255); font-family:Fixed, monospace;margin-left:40px;padding-left:5px;border-width: 1px; border-style: solid; border-color: gray; ">$ ./a.out
+Input:
+string 1 = January	←※文字列を入力
+string 2 = February	←※文字列を入力
+string 3 = March	←※文字列を入力
+string 4 = April	←※文字列を入力
+string 5 = May		←※文字列を入力
+
+Output:
+May
+April
+March
+January
+February
+$ 
+</pre>
+</li>
+</ol>
+<h3 style="text-align:left;background-color: rgb(221, 187, 187); border-width: 1px; border-style: solid; padding: 5px 3px 3px 0.5em; border-color: rgb(255, 204, 204) rgb(153, 102, 102) rgb(153, 102, 102) rgb(255, 204, 204); "><span style="display:inline;counter-increment:section 1;counter-reset:chapter 3">課題 ', counter(2.31065e-317), '-', counter(2.31064e-317), ' </span></h3>
+<ol style="text-align:left;list-style-type:lower-alpha;">
+<li style="text-align:left;line-height:130%;">コマンドライン引数のうち最初に与えた文字列を、予め用意されたメッセージの中に挿入して表示するプログラム[rand_message.c]を作成せよ。ただし
+<ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">コマンドライン引数の数が 1 でない場合は、プログラムの使い方を表示せよ。</li>
+<li style="text-align:left;line-height:130%;">メッセージは 5 通り以上用意し、実行のたびにその中からランダムに選ばれるようにせよ。なお、ランダムな処理を実現するには srand 関数や rand 関数を調べてみよ。</li>
+<li style="text-align:left;line-height:130%;">メッセージは文字列の配列あるいは char 型のポインタの配列で保持せよ。</li>
+<li style="text-align:left;line-height:130%;">メッセージは自分で好きなものを考えてよい（例通りでなくても良い）。</li>
+</ul>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;"><strong style="text-align:left;">[実行例]</strong></div>
+<pre style="text-align:left;background-color: rgb(240, 248, 255); font-family:Fixed, monospace;margin-left:40px;padding-left:5px;border-width: 1px; border-style: solid; border-color: gray; ">$ cc rand_message.c -o rand_message
+
+$ ./rand_message
+Usage: ./rand_message name
+
+$ ./rand_message 王蟲
+王蟲は大変なものを盗んでいきました。あなたの心です。
+
+$ ./rand_message クリリン
+さすがクリリンッ！　俺達にできないことを平然とやってのけるッ！
+
+$ ./rand_message パトラッシュ
+パトラッシュのことかーーーーっ！！！
+
+$ ./rand_message ルパン
+ルパン、僕はなんだか疲れちゃったよ。すごく眠いんだ。
+
+$ ./rand_message ディオ
+ディオ、森へお帰り。この先はお前の世界ではないのよ。
+
+$ ./rand_message 王蟲
+王蟲、森へお帰り。この先はお前の世界ではないのよ。
+
+</pre>
+</li>
+<li style="text-align:left;line-height:130%;">コマンドライン引数を受け取る次のようなプログラム [my_command.c] を作成せよ。ただし、
+<ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">コマンドラインオプションが指定される順番は任意である。</li>
+<li style="text-align:left;line-height:130%;">他に自分の好きなコマンドラインオプションを作ってもよい (作らなくてもよい)。</li>
+<li style="text-align:left;line-height:130%;">コマンドライン引数を何も指定しない場合は、プログラムの使い方 (指定できるコマンドライン引数とその意味) を出力せよ。</li>
+</ul>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;"><strong style="text-align:left;">[実行例]</strong></div>
+<pre style="text-align:left;background-color: rgb(240, 248, 255); font-family:Fixed, monospace;margin-left:40px;padding-left:5px;border-width: 1px; border-style: solid; border-color: gray; ">$ cc my_command.c -o my_command
+
+$ ./my_command	←※コマンドライン引数に何も指定していない
+Usage: ./my_command [-h name] [-s]
+  -h: say hello to "name"	←※"name"で指定した名前に hello と呼びかける
+  -s: print smiley mark		←※適当な顔文字を表示する
+
+$ ./my_command -h Yamada	←※ name として Yamada を指定
+Hello, Yamada!
+
+$ ./my_command -h		←※ name に何も指定しなかった場合
+Error: missing name for "-h" option
+
+$ ./my_command -s		←※コマンドラインオプションとして -s を指定
+(^-^)
+
+$ ./my_command -s -h Taro	←※ -s と -h を両方とも指定
+(^-^)
+Hello, Taro!
+
+$ ./my_command -h Taro -s	←※ -s と -h の順番を入れ替えた
+Hello, Taro!
+(^-^)
+
+$ ./my_command -h -s 		←※ -s と -h を両方とも指定、-h に name を指定していない
+Error: missing name for "-h" option
+
+</pre>
+</li>
+</ol>
+
+<h3 style="text-align:left;background-color: rgb(221, 187, 187); border-width: 1px; border-style: solid; padding: 5px 3px 3px 0.5em; border-color: rgb(255, 204, 204) rgb(153, 102, 102) rgb(153, 102, 102) rgb(255, 204, 204); "><span style="display:inline;counter-increment:section 1;counter-reset:chapter 3">課題 ', counter(2.31065e-317), '-', counter(2.31064e-317), ' </span></h3>
+<ol style="text-align:left;list-style-type:lower-alpha;">
+<li style="text-align:left;line-height:130%;">
+コマンドライン引数として、第 1 引数に検索する文字列、第 2 引数に入力となるテキストファイル名を与えると、第 1 引数で指定した文字列を含む行を、行番号とともに出力するプログラム [my_grep.c] を作成せよ。ただし、 <ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">コマンドライン引数が 2 つ指定されなかった場合は、プログラムの使い方を出力せよ。</li>
+<li style="text-align:left;line-height:130%;">文字列の操作にライブラリ関数を使ってよい。</li>
+</ul>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;"><strong style="text-align:left;">[実行例]</strong></div>
+<pre style="text-align:left;background-color: rgb(240, 248, 255); font-family:Fixed, monospace;margin-left:40px;padding-left:5px;border-width: 1px; border-style: solid; border-color: gray; ">$ cc my_grep.c -o my_grep
+
+$ ./my_grep
+Usage: ./my_grep string filename
+
+$ cat sample.txt	←※入力となるテキストファイルは自分で用意せよ。
+High above the clouds, looking out into the sky, right before our eyes our lives are coming into shape.
+With each breath we take, We find the reason why we've come together in this place.
+
+Tell me can you see the future looking back at you?
+Tell me can you hear the message carried in the winds, to your heart?
+
+Imagine the future, We shall go together, 
+Our hearts joined as one, move ahead, take a step and carry on. 
+Imagine the future, We shall go together, 
+Walk hand in hand, make a future that changes the world.
+
+$ ./my_grep future sample.txt
+04: Tell me can you see the future looking back at you?
+07: Imagine the future, We shall go together,
+09: Imagine the future, We shall go together,
+10: Walk hand in hand, make a future that changes the world.
+</pre>
+</li>
+</ol>
+<h3 style="text-align:left;background-color: rgb(221, 187, 187); border-width: 1px; border-style: solid; padding: 5px 3px 3px 0.5em; border-color: rgb(255, 204, 204) rgb(153, 102, 102) rgb(153, 102, 102) rgb(255, 204, 204); "><span style="display:inline;counter-increment:section 1;counter-reset:chapter 3">課題 ', counter(2.31065e-317), '-', counter(2.31064e-317), ' </span></h3>
+<ol style="text-align:left;list-style-type:lower-alpha;">
+<li style="text-align:left;line-height:130%;">
+コマンドライン引数として、第 1 引数と第 2 引数に文字列、第 3 引数に入力となるテキストファイル名を与えると、第 1 引数で指定した文字列を第 2 引数の文字列に置換して、テキストファイルの中身を出力するプログラム[replace_str.c]を作成せよ。ただし、 <ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">コマンドライン引数が 3 つ指定されなかった場合は、プログラムの使い方を出力せよ。</li>
+<li style="text-align:left;line-height:130%;">文字列の操作にライブラリ関数を使ってよい。</li>
+</ul>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;"><strong style="text-align:left;">[実行例]</strong></div>
+<pre style="text-align:left;background-color: rgb(240, 248, 255); font-family:Fixed, monospace;margin-left:40px;padding-left:5px;border-width: 1px; border-style: solid; border-color: gray; ">$ cc replace_str.c -o replace_str
+
+$ ./replace_str
+Usage: ./replace_str string1 string2 filename
+
+$ cat sample.txt	←※入力となるテキストファイルは自分で用意せよ。
+(※上と同じテキストファイル)
+
+$ ./replace_str future TOMORROW sample.txt
+High above the clouds, looking out into the sky, right before our eyes our lives are coming into shape.
+With each breath we take, We find the reason why we've come together in this place.
+
+Tell me can you see the TOMORROW looking back at you?
+Tell me can you hear the message carried in the winds, to your heart?
+
+Imagine the TOMORROW, We shall go together,
+Our hearts joined as one, move ahead, take a step and carry on.
+Imagine the TOMORROW, We shall go together,
+Walk hand in hand, make a TOMORROW that changes the world.</pre>
+</li>
+</ol>
+<h3 style="text-align:left;background-color: rgb(221, 187, 187); border-width: 1px; border-style: solid; padding: 5px 3px 3px 0.5em; border-color: rgb(255, 204, 204) rgb(153, 102, 102) rgb(153, 102, 102) rgb(255, 204, 204); "><span style="display:inline;counter-increment:section 1;counter-reset:chapter 3">課題 ', counter(2.31065e-317), '-', counter(2.31064e-317), ' </span>(チャレンジ問題)</h3>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;">
+コマンドライン引数を受け取る一般的な UNIX のコマンド (今回の練習問題やレポート課題で出題済みのものと類似したコマンドは除く) を 1 つ選び、それを模して同様に動作するプログラムを作成せよ。再現度やプログラムの複雑さに応じて加点する。 </div>
+
+<br style="text-align:left;"/><br style="text-align:left;"/>
+</div></div></div></body></html>

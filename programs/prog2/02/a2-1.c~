@@ -1,0 +1,35 @@
+#include <stdio.h>
+ 
+void copyArray(int n, int inArray[], int outArray[]);
+void printArray(int n, int a[]);
+ 
+int main(void)
+{
+    int a[5] = { 1, 1, 2, 3, 5 };
+    int b[5];
+     
+    printf("array a[]:\n");
+    printArray(5, a);   
+ 
+    copyArray(5, a, b);
+ 
+    printf("array b[]:\n");
+    printArray(5, b);   
+ 
+    return 0;
+}
+ 
+void copyArray(int n, int inArray[], int outArray[])
+{
+    outArray = inArray;
+}
+ 
+void printArray(int n, int a[])
+{
+    int i;
+ 
+    for (i=0; i<n; i++)
+        printf("%d ", a[i]);
+ 
+    putchar('\n');
+}

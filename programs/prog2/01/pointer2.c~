@@ -1,0 +1,24 @@
+#include <stdio.h>
+ 
+int main(void)
+{
+    int a;
+    int *p;
+ 
+    p = &a;
+ 
+    printf("変数 a の値を入力してください．\na = ");
+    scanf("%d", &a);
+    printf("\n");
+ 
+    printf("a に a+1 = %d+1 を代入．\n\n", a);
+    a = a+1;
+ 
+    printf("変数 a の値         : %d\n", a);
+    printf("変数 a のアドレス      : %p\n", &a);
+    printf("ポインタ p が指している変数の値 : %d\n", *p);
+    printf("ポインタ p の値           : %p\n", p);
+    printf("\n");
+ 
+    return 0;
+}

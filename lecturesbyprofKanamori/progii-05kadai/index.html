@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>第 5 回レポート課題 - 2018 年度プログラミング実習 II -</title><meta http-equiv="Content-Type" content="text/html;charset=utf-8"/><link rel="canonical" href="http://archive.today/Pu9TZ"/></head><body style="margin:0;background-color:white;width:1024px"><div class="html1" style="width: 1024px;text-align: left;overflow-x: auto;overflow-y: auto; background-color: rgba(0, 0, 0, 0);position: relative;min-height: 2901px;; z-index: 0"><div class="html" style="text-align:left;overflow-x:visible;overflow-y:visible;">
+
+
+
+
+
+
+
+
+
+
+
+<div class="body" style="vertical-align:bottom;min-height:2872px;color:rgb(0, 0, 0);text-align:left;counter-reset:chapter 0;overflow-x:visible;overflow-y:visible;margin: 8px; "><h1 style="text-align:left;background-color:rgb(187, 187, 238);counter-increment:chapter 1;counter-reset:section 0;border-width:1px;border-style:solid;padding:5px 3px 3px 0.5em;border-color:rgb(204, 204, 255) rgb(102, 102, 153) rgb(102, 102, 153) rgb(204, 204, 255)"><span style="counter-reset:chapter 5;">第, counter(-1.19655e-295), '回 '</span>レポート課題</h1>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;">下記の「課題 5-1」〜「課題 5-2」を解き、課題レポート提出法 (実習のトップページに記載) に従って提出しなさい。</div>
+
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;">今回の課題は、b, c, d, e (およびチャレンジ問題) で個別に main 関数のある独立したプログラムを作るのは冗長なので、できたところまでの動作が確認できるような main 関数を 1 つ用意して、そこで正しく動作していることがわかるようなコードを記述すること。</div>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;">なお、「課題 5-2」はチャレンジ問題である。これを解かなくても（通常の課題のみの解答でも）満点を取ることが可能であるが、正しく解けた場合には加点する。ただし、通常の課題を解かないでチャレンジ課題を解いても採点対象とはならない。</div>
+
+<h3 style="text-align:left;background-color: rgb(221, 187, 187); border-width: 1px; border-style: solid; padding: 5px 3px 3px 0.5em; border-color: rgb(255, 204, 204) rgb(153, 102, 102) rgb(153, 102, 102) rgb(255, 204, 204); "><span style="display:inline;counter-increment:section 1;counter-reset:chapter 5">課題 ', counter(-2.26434e-295), '-', counter(1.10564e-12), ' </span></h3>
+<ol style="text-align:left;list-style-type:lower-alpha;">
+<li style="text-align:left;line-height:130%;">
+練習問題 5-4a と同様に、PPM 形式のカラー画像の中身を出力するプログラム[ppm_dump.c]を作成せよ。「ただし」の条件も同じである。カラー画像の 2 つのサンプル画像は次のリンクからダウンロードせよ。 <ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;"><a href="http://archive.today/o/Pu9TZ/kanamori.cs.tsukuba.ac.jp/lecture/2018/prog2/pages/images6/color4x4_ascii.ppm" style="text-align:left;">color4x4_ascii.ppm</a>
+(アスキー形式)</li>
+<li style="text-align:left;line-height:130%;"><a href="http://archive.today/o/Pu9TZ/kanamori.cs.tsukuba.ac.jp/lecture/2018/prog2/pages/images6/color4x4_binary.ppm" style="text-align:left;">color4x4_binary.ppm</a>
+(バイナリ形式)</li>
+</ul>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;"><strong style="text-align:left;">[実行例]</strong></div>
+<pre style="text-align:left;background-color: rgb(240, 248, 255); font-family:Fixed, monospace;margin-left:40px;padding-left:5px;border-width: 1px; border-style: solid; border-color: gray; ">$ ./ppm_dump  color4x4_ascii.ppm
+image size: 4x4
+(0,0) rgb = (255, 0, 0)		←左の (0,0) はピクセルの座標。右の (255, 0, 0) は R, G, B の値。
+(1,0) rgb = (255, 0, 0)
+(2,0) rgb = (255, 255, 255)
+(3,0) rgb = (255, 255, 255)
+(0,1) rgb = (255, 0, 0)
+(1,1) rgb = (255, 0, 0)
+(2,1) rgb = (255, 255, 255)
+(3,1) rgb = (255, 255, 255)
+(0,2) rgb = (0, 255, 0)
+(1,2) rgb = (0, 255, 0)
+(2,2) rgb = (0, 0, 255)
+(3,2) rgb = (0, 0, 255)
+(0,3) rgb = (0, 255, 0)
+(1,3) rgb = (0, 255, 0)
+(2,3) rgb = (0, 0, 255)
+(3,3) rgb = (0, 0, 255)
+
+$ ./ppm_dump  color4x4_binary.ppm
+image size: 4x4
+(0,0) rgb = (255, 0, 0)
+(1,0) rgb = (255, 0, 0)
+(2,0) rgb = (255, 255, 255)
+(3,0) rgb = (255, 255, 255)
+(0,1) rgb = (255, 0, 0)
+(1,1) rgb = (255, 0, 0)
+(2,1) rgb = (255, 255, 255)
+(3,1) rgb = (255, 255, 255)
+(0,2) rgb = (0, 255, 0)
+(1,2) rgb = (0, 255, 0)
+(2,2) rgb = (0, 0, 255)
+(3,2) rgb = (0, 0, 255)
+(0,3) rgb = (0, 255, 0)
+(1,3) rgb = (0, 255, 0)
+(2,3) rgb = (0, 0, 255)
+(3,3) rgb = (0, 0, 255)
+
+$
+</pre>
+</li><br style="text-align:left;"/>
+<li style="text-align:left;line-height:130%;">
+グレースケール画像をファイルから読み込む load_pgm 関数、および、ファイルに書き込む save_pgm 関数を作成せよ。ただし、 <ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">save_pgm 関数による画像の書き込みはバイナリ形式だけでよい。</li>
+<li style="text-align:left;line-height:130%;">load_pgm 関数を使って画像ファイルを読み込んだのち save_pgm 関数で新しい画像ファイルに書き込み、さらに hexdump コマンドで 2 つの画像ファイルの中身が一致しているか確認せよ。</li>
+<li style="text-align:left;line-height:130%;">load_pgm 関数および save_pgm 関数の関数プロトタイプ宣言は、次のようにせよ。
+<pre style="text-align:left;background-color: rgb(238, 238, 240); margin-left:40px;overflow-x:auto;overflow-y:auto;width:90%;border-width: 1px; border-style: solid; padding: 5px; border-color: gray; ">int load_pgm(const char *filename, int *w, int *h, unsigned char *buf);
+int save_pgm(const char *filename, int w, int h, unsigned char *buf);
+</pre>ここで、返り値は読み込み/書き込みに成功すれば 1 、失敗したら 0 とする。filename は入力となるファイル名、w, h は画像の横幅と縦幅、buf は画像データが入った配列とする。</li>
+</ul>
+ヒント： <ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">上記の関数は、一次元配列 buf を渡すようになっている。画像データは二次元配列として表現したいかもしれないが、実際の画像ライブラリでも一次元配列で表現されていることが多い。理由は今後紹介する。一次元配列を二次元配列のように使うには、メモリのアドレスを自分で計算すればよい。画像の横幅が w, 縦幅が h で、ピクセルの座標が (xi, yi) であれば、そのピクセルのグレースケール画像のデータは buf[xi + w * yi] でアクセスできる。</li>
+</ul>
+</li><br style="text-align:left;"/>
+<li style="text-align:left;line-height:130%;">
+カラー画像をファイルから読み込む load_ppm 関数、および、ファイルに書き込む save_ppm 関数を作成せよ。「ただし」の条件は、問題 b と同様である。<br style="text-align:left;"/>
+ヒント： <ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">カラー画像の場合、ピクセル (xi, yi) には R, G, B の 3 つの値が入っている。画像サイズが w × h だとすると、R, G, B の値はそれぞれ、buf[3 * (xi + w * yi)], buf[3 * (xi + w * yi) + 1], buf[3 * (xi + w * yi) + 2] でアクセスできる。</li>
+</ul>
+</li><br style="text-align:left;"/>
+<li style="text-align:left;line-height:130%;">
+問題 b, c で作った関数を、ヘッダファイルとソースファイルに分け、Makefile を用意し、分割コンパイルできるようにせよ。適当な main 関数を用意し、分割コンパイルから実行までがうまくいくことを確認せよ。以降の問題は、すべて分割コンパイルが前提とする。 </li><br style="text-align:left;"/>
+<li style="text-align:left;line-height:130%;">
+次のような 3 つの関数を、ヘッダファイルとソースファイルに分けて実装し、適当な画像を入力として、結果画像を出力してみよ。レポートには入力画像とともに、結果画像を載せよ。なお、画像の読み込み・書き出しは以下の関数の中では行わず、load_pgm, load_ppm, save_pgm, save_ppm 関数を適切に用いて行うこと。 <ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">カラー画像を入力として、グレースケール画像を出力する color2gray 関数。
+<pre style="text-align:left;background-color: rgb(238, 238, 240); margin-left:40px;overflow-x:auto;overflow-y:auto;width:90%;border-width: 1px; border-style: solid; padding: 5px; border-color: gray; ">void color2gray(int w, int h, unsigned char *colorBuf, unsigned char *grayBuf);
+</pre>
+</li>
+<li style="text-align:left;line-height:130%;">グレースケール画像を入力として、セピア調に変換したカラー画像を出力する gray2sepia 関数。
+<pre style="text-align:left;background-color: rgb(238, 238, 240); margin-left:40px;overflow-x:auto;overflow-y:auto;width:90%;border-width: 1px; border-style: solid; padding: 5px; border-color: gray; ">void gray2sepia(int w, int h, unsigned char *grayBuf, unsigned char *sepiaBuf);
+</pre>
+</li>
+<li style="text-align:left;line-height:130%;">グレースケール画像を入力として、ネガポジ反転を施したグレースケール画像を出力する gray_negapos 関数。
+<pre style="text-align:left;background-color: rgb(238, 238, 240); margin-left:40px;overflow-x:auto;overflow-y:auto;width:90%;border-width: 1px; border-style: solid; padding: 5px; border-color: gray; ">void gray_negapos(int w, int h, unsigned char *posBuf, unsigned char *negBuf);
+</pre>
+</li>
+</ul>
+ヒント: <ul style="text-align:left;">
+<li style="text-align:left;line-height:130%;">ピクセルのデータは unsigned char で記録しているので、計算結果が 255 を超えないように注意せよ。越えるなら 255 に切り詰める。</li>
+<li style="text-align:left;line-height:130%;">RGB 値をグレースケール Y に変換するには、Y = 0.298912 * R + 0.586611 * G + 0.114478 * B という計算をすればよい。</li>
+<li style="text-align:left;line-height:130%;">グレースケール値 Y からセピア調の RGB 値は、R = (240.0/255.0)*Y; G = (200.0/255.0)*Y; B = (145.0/255.0)*Y という計算をすればよい。</li>
+<li style="text-align:left;line-height:130%;">グレースケール画像のネガポジ反転とは、入力となるグレースケール値 Y に対して 255 - Y を計算することである。</li>
+</ul>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;"><strong style="text-align:left;">[結果画像の例]</strong></div>
+<a href="http://archive.today/o/Pu9TZ/kanamori.cs.tsukuba.ac.jp/lecture/2018/prog2/pages/images6/lenna256x256.ppm" style="text-align:left;">lenna256x256.ppm</a>(こちらの画像は用いても用いなくてもよい)<br style="text-align:left;"/>
+※ ppm および pgm 画像を出力後、jpg 形式に変換して表示している。 <table style="text-align:left;border-width: 0px; border-style: outset; border-color: #999; ">
+<tbody style="text-align:left;"><tr style="text-align:left;"><td style="color:rgb(0, 0, 0);text-align:left;"><a href="1701412add3fa451497c6ceac165eb6579d0b80a.jpg" social="yes" target="_blank" style="cursor:zoom-in"><img src="1701412add3fa451497c6ceac165eb6579d0b80a.jpg" style="text-align:left;"/></a></td><td style="color:rgb(0, 0, 0);text-align:left;"><a href="b8e5cae0e857142158a7830f01cce8a77cc15022.jpg" social="yes" target="_blank" style="cursor:zoom-in"><img src="b8e5cae0e857142158a7830f01cce8a77cc15022.jpg" style="text-align:left;"/></a></td><td style="color:rgb(0, 0, 0);text-align:left;"><a href="38d9b0f4f5221cbe65da10bc18b98f7ce4c800b8.jpg" social="yes" target="_blank" style="cursor:zoom-in"><img src="38d9b0f4f5221cbe65da10bc18b98f7ce4c800b8.jpg" style="text-align:left;"/></a></td><td style="color:rgb(0, 0, 0);text-align:left;"><a href="4a09a9455bd3de63e7c5576e1044ef7f5559f8ea.jpg" social="yes" target="_blank" style="cursor:zoom-in"><img src="4a09a9455bd3de63e7c5576e1044ef7f5559f8ea.jpg" style="text-align:left;"/></a></td></tr>
+<tr style="text-align:left;"><td style="color:rgb(0, 0, 0);text-align:left;">入力画像</td><td style="color:rgb(0, 0, 0);text-align:left;">グレースケール</td><td style="color:rgb(0, 0, 0);text-align:left;">セピア調</td><td style="color:rgb(0, 0, 0);text-align:left;">ネガポジ反転</td></tr>
+</tbody></table>
+</li>
+</ol>
+<h3 style="text-align:left;background-color: rgb(221, 187, 187); border-width: 1px; border-style: solid; padding: 5px 3px 3px 0.5em; border-color: rgb(255, 204, 204) rgb(153, 102, 102) rgb(153, 102, 102) rgb(255, 204, 204); "><span style="display:inline;counter-increment:section 1;counter-reset:chapter 5">課題 ', counter(-2.26434e-295), '-', counter(1.10564e-12), ' </span>チャレンジ問題</h3>
+<ol style="text-align:left;list-style-type:lower-alpha;">
+<li style="text-align:left;line-height:130%;">
+問題 5-1e のような画像処理を行う関数を何か 3 種類実装し、入力画像とともに結果画像を示せ。 </li>
+</ol>
+<a name="QandA" style="text-align:left;"></a>
+<h3 style="text-align:left;background-color: rgb(221, 187, 187); border-width: 1px; border-style: solid; padding: 5px 3px 3px 0.5em; border-color: rgb(255, 204, 204) rgb(153, 102, 102) rgb(153, 102, 102) rgb(255, 204, 204); ">Q &#38; A</h3>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;">
+レポートに関して類似した質問が多くあった場合、以下にその質問と回答を掲載します。定期的にチェックしてください。 </div>
+<div style="margin-top:16px;margin-bottom:16px;text-align:left;line-height:140%;">
+<strong style="text-align:left;">Q. バイナリのデータを unsigned char の配列に入れて、printf 文に %s を指定して出力しようとしましたが、セグメンテーション違反になりました。なぜ %s を指定してはいけないのですか？</strong><br style="text-align:left;"/>
+A. printf 文の %s は文字列のための指定です。文字列とは何だったでしょうか。<br style="text-align:left;"/>
+<font color="red" style="text-align:left;"><b style="text-align:left;">
+「char 型の値のうち、アスキーコード表に載っている特定の値が並んでいて、最後にヌル文字 '\0' がついているもの」 </b></font><br style="text-align:left;"/>
+です。バイナリデータの末尾にヌル文字が来るとは限りません。0 から 255 までの整数値として表示したいなら、unsigned char の値を 1 バイトずつ int 型にキャストして %d を使って表示してください。 </div>
+<br style="text-align:left;"/><br style="text-align:left;"/>
+</div></div></div></body></html>

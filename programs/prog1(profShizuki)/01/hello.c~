@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+/* C programs start by executing the function main */
+int main(void) {
+  printf("Hello, World!\n"); /* output "Hello, World!" */
+  return 0;
+}

@@ -1,0 +1,207 @@
+#include <stdio.h>
+#include <math.h>
+
+double determinant3x3(double A[9]);
+void mult3x3(double C[9], double A[9], double B[9]);
+int invert3x3(double A[9], double invA[9]);
+double dot3(double u[3], double v[3]);
+void cross3(double u[3], double v[3], double w[3]);
+void normalize3(double u[3]);
+void makeRotation3x3(double u[3], double v[3], double R[9]);
+
+
+int main(){
+  double A[9], B[9], C[9], u[3], v[3], w[3], R[9];
+  int i, q;
+  
+  for(i=0; i<9; i++){
+    A[i]=0;
+    B[i]=0;
+    C[i]=0;
+    R[i]=0;
+  }
+  for(i=0;i<3;i++){
+    u[i]=0;
+    v[i]=0;
+    w[i]=0;
+  }
+  
+  printf("Input a matrix> ");
+
+  for(i=0; i<9; i++){
+    scanf("%lf", (A+i));
+  }
+
+  printf("Input another matrix> ");
+
+  for(i=0; i<9; i++){
+    scanf("%lf", (B+i));
+  }
+
+  printf("Matrix A:\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n\n",
+	 A[0], A[3], A[6], A[1], A[4], A[7], A[2], A[5], A[8]);
+
+   printf("Matrix B:\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n\n",
+	  B[0], B[3], B[6], B[1], B[4], B[7], B[2], B[5], B[8]);
+
+  printf("determinant of A: %lf\n\n", determinant3x3(A));
+
+  mult3x3(C, A, B);
+
+  printf("Matrix AxB:\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n\n",
+	 C[0], C[3], C[6], C[1], C[4], C[7], C[2], C[5], C[8]);
+
+  q= invert3x3(A, C);
+
+  if(q==0){
+    printf("A^-1:\n  not invertible\n\n");
+  }
+  else{
+    printf("Invert of matrix A:\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n\n",
+	   C[0], C[3], C[6], C[1], C[4], C[7], C[2], C[5], C[8]);
+
+    mult3x3(B, A, C);
+    
+    printf("A * A^-1:\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n\n",
+	   B[0], B[3], B[6], B[1], B[4], B[7], B[2], B[5], B[8]);
+  }
+
+
+
+  printf("input vector u>");
+  for(i=0; i<3; i++){
+    scanf("%lf", u+i);
+  }
+
+  printf("input vector v>");
+  for(i=0; i<3; i++){
+    scanf("%lf", v+i);
+  }
+  
+
+  printf("\ndot(u, v): %lf\n", dot3(u, v));
+
+  cross3(u, v, w);
+
+  printf("cross(u, v): (%lf, %lf, %lf)\n", w[0], w[1], w[2]);
+
+  normalize3(u);
+  normalize3(v);
+
+  makeRotation3x3(u, v, R);
+
+  printf("normalized u: (%lf, %lf, %lf)\n", u[0], u[1], u[2]);
+  printf("normalized v: (%lf, %lf, %lf)\n\n", v[0], v[1], v[2]);
+
+  printf("rotation matrix R:\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n\n",
+	 R[0], R[3], R[6], R[1], R[4], R[7], R[2], R[5], R[8]);
+
+  printf("inverted rotation matrix R^-1:\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n  %lf, %lf, %lf\n\n",
+	 R[0], R[1], R[2], R[3], R[4], R[5], R[6], R[7], R[8]);
+  
+  return 0;
+}
+
+double determinant3x3(double A[9]){
+  double det;
+
+  det=A[0]*A[4]*A[8] +A[3]*A[7]*A[2] +A[6]*A[1]*A[5] -A[6]*A[4]*A[2] -A[0]*A[7]*A[5] -A[3]*A[1]*A[8];
+
+  return det;
+}
+
+void mult3x3(double C[9], double A[9], double B[9]){
+  C[0]= A[0]*B[0] +A[3]*B[1] +A[6]*B[2];
+  C[1]= A[1]*B[0] +A[4]*B[1] +A[7]*B[2];
+  C[2]= A[2]*B[0] +A[5]*B[1] +A[8]*B[2];
+  C[3]= A[0]*B[3] +A[3]*B[4] +A[6]*B[5];
+  C[4]= A[1]*B[3] +A[4]*B[4] +A[7]*B[5];
+  C[5]= A[2]*B[3] +A[5]*B[4] +A[8]*B[5];
+  C[6]= A[0]*B[6] +A[3]*B[7] +A[6]*B[8];
+  C[7]= A[1]*B[6] +A[4]*B[7] +A[7]*B[8];
+  C[8]= A[2]*B[6] +A[5]*B[7] +A[8]*B[8];
+	  
+}
+
+int invert3x3(double A[9], double invA[9]){
+  double det;
+
+  det= determinant3x3(A);
+
+  if(det == 0){
+    return 0;
+  }
+  else{
+    invA[0]=(A[4]*A[8] -A[7]*A[5])/det;
+    invA[3]=-(A[3]*A[8] -A[6]*A[5])/det;
+    invA[6]=(A[3]*A[7] -A[6]*A[4])/det;
+    invA[1]=-(A[1]*A[8] -A[7]*A[2])/det;
+    invA[4]=(A[0]*A[8] -A[6]*A[2])/det;
+    invA[7]=-(A[0]*A[7] -A[6]*A[1])/det;
+    invA[2]=(A[1]*A[5] -A[4]*A[2])/det;
+    invA[5]=-(A[0]*A[5] -A[3]*A[2])/det;
+    invA[8]=(A[0]*A[4] -A[3]*A[1])/det;
+    
+    return 1;
+  }
+}
+
+
+double dot3(double u[3], double v[3]){
+  double dot=0;
+
+  for(int i=0; i<3; i++){
+    dot +=u[i]*v[i];
+  }
+  return dot;
+}
+
+void cross3(double u[3], double v[3], double w[3]){
+  w[0]=u[1]*v[2] -u[2]*v[1];
+  w[1]=u[2]*v[0] -u[0]*v[2];
+  w[2]=u[0]*v[1] -u[1]*v[0];
+}
+
+void normalize3(double u[3]){
+  double U;
+
+  U= sqrt(dot3(u, u));
+
+  u[0]= u[0]/U;
+  u[1]= u[1]/U;
+  u[2]= u[2]/U;
+}
+
+void makeRotation3x3(double u[3], double v[3], double R[9]){
+  double e0[3], e1[3], e2[3], M;
+  int i;
+
+  for(i=0; i<3; i++){
+    e0[i]=0;
+    e1[i]=0;
+    e2[i]=0;
+  }
+
+  normalize3(u);
+  e0[0]=u[0];
+  e0[1]=u[1];
+  e0[2]=u[2];
+
+  M=sqrt(dot3(v, v) +dot3(e0, e0)*dot3(v, e0)*dot3(v, e0) -2*dot3(v, e0)*dot3(v, e0));
+
+  for(i=0; i<3; i++){
+    e1[i]=(v[i] -(dot3(v, e0)*e0[i]))/M;
+  }
+  
+  cross3(e0, e1, e2);
+
+  R[0]=e0[0];
+  R[1]=e0[1];
+  R[2]=e0[2];
+  R[3]=e1[0];
+  R[4]=e1[1];
+  R[5]=e1[2];
+  R[6]=e2[0];
+  R[7]=e2[1];
+  R[8]=e2[2];
+}

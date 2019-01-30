@@ -1,0 +1,7 @@
+This is a sample text.
+A text might have
+multiple   spaces,		tabs 
+
+  or  
+
+empty lines.

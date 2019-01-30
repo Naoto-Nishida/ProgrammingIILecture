@@ -1,0 +1,114 @@
+\documentclass[12pt,a4paper]{jarticle}
+\usepackage{listings}
+
+\title{プログラミング1Aレポート課題第一回}
+\author{西田直人}
+
+\begin{document}
+\maketitle
+
+\section{課題1-1}
+以下x. (入力したコマンド)の形式で記述する。\\
+
+\noindent a. cd\\
+b. pwd\\
+c. ls -l\\
+d. mkdir prog1\\
+e. cd prog1\\
+f. mkdir 01\\
+g. cd 01\\
+h. cp /home/shizuki.buntaro.ga/prog1/test1.c .\\
+i. cat test1.c\\
+j. less test1.c\\
+k. cat -b\\
+l. chmod 644 test1.c\\
+m. mv test1.c primes.c\\
+n. cc -o primes primes.c\\
+
+\section{課題1-2}
+
+レポート課題（第一回）用のディレクトリのフルパス名：\\
+\quad /home/s1811433/prog1/01kadai\\
+\\
+レポート課題（第一回）用のディレクトリ内に作成したarithmetic.cのフルパス名:\\
+\quad /home/s1811433/prog1/01kadai/arithmetic.c\\
+\\
+プログラム実行結果\\
+\\
+\$ cc -o arithmetic arithmetic.c\\
+\$ ./arithmetic\\
+27\\
+19\\
+92\\
+5\\
+3\\
+
+\section{課題1-3}
+
+\section{課題1-4}
+作成したプログラムのソースコード\\
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+#include <stdio.h>
+
+void main(){
+  printf(``Rick said to Ilsa:\n'');
+  printf(``Here's looking at you, kid.\n'');
+}
+\end{lstlisting}
+
+作成したプログラムの実行結果\\\\
+\$ cc -o casablanca casablanca.c\\
+\$ ./casablanca\\
+Rick said to Ilsa:\\
+Here's looking at you, kid.
+
+\section{課題1-5}
+作成したプログラムのソースコード\\
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  File Edit Options Buffers Tools C Help
+  #include <stdio.h>
+
+  int main(void) {
+    /* first paragraph */
+    printf(``I have a dream that one day this nation will rise up and live\n'');
+    printf(``out the true meaning of its creed.  We hold these truths to be\n'');
+    printf(``self-evident: that all men are created equal.\n'');
+    printf(``\n'');
+    
+    /* second paragraph */
+    printf(``I have a dream that one day out in the red hills of Georgia the\n'');
+    printf(``sons of former slaves and the sons of former slave owners will\n'');
+    printf(``be able to sit down together at the table of brotherhood.\n'');
+    printf(``\n'');
+
+    /* third paragraph */
+    printf(``I have a dream that one day even the state of Mississippi, a\n'');
+    printf(``state sweltering with the heat of oppression, will be\n'');
+    printf(``transformed into an oasis of freedom and justice.\n'');
+    printf(``\n'');
+
+    return0;
+  }
+
+\end{lstlisting}
+作成したプログラムの実行結果\\
+\verb|$ cc -o dream dream.c|\\
+\$ ./dream
+I have a dream that one day this nation will rise up and live\\
+out the true meaning of its creed.  We hold these truths to be\\
+self-evident: that all men are created equal.\\
+\\
+I have a dream that one day out in the red hills of Georgia the\\
+sons of former slaves and the sons of former slave owners will\\
+be able to sit down together at the table of brotherhood.\\
+\\
+I have a dream that one day even the state of Mississippi, a\\
+state sweltering with the heat of oppression, will be\\
+transformed into an oasis of freedom and justice.\\
+\\
+
+
+\section{課題1-6}
+
+
+\end{document}

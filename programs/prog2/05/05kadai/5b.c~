@@ -1,0 +1,68 @@
+
+int load_pgm(const char *filename, int *w, int *h, unsigned char *buf){
+  FILE *fpl;
+  char header[3];
+  int i, dummy, count=0, c;
+
+  fpl = fopen(filename, "rb");
+
+
+  if(fpl == NULL){
+    printf("Error: original file missing.");
+    return 0;
+  }
+  fscanf(fpl, "%s\n%d %d\n%d\n", header, w, h, &dummy);
+  fseek(fpl, 0, SEEK_SET);
+
+  // printf("%s", header);
+
+  while (1) {    // 無限ループ
+    c = fgetc(fpl);     // ファイルから1バイト読み込んで c に入れる
+    if (c == EOF) {           // もしファイルの終端に達していたら
+      break;                  // while ループから抜け出す
+    }
+    count++;
+  }
+  
+  fseek(fpl, 0, SEEK_SET);
+
+  if(strcmp(header, "P2") == 0){
+    for(i=0; i<count; i++){  //12byte is the size of metadata
+	fscanf(fpl, "%c", (buf+i));
+    }
+    //buf gets the 255, 0 and space as char
+    //so (255 255 0 0 )is 3 times higher in byte than(ff00)
+    
+    //printf("%d %d", *w, *h);
+    //printf("2");
+  }
+  else{
+    fread(buf, sizeof(unsigned char), count, fpl);
+    //printf("3");
+  }
+    
+  fclose(fpl);
+  return 1;
+}
+
+
+int save_pgm(const char *filename, int w, int h, unsigned char *buf){
+
+  FILE *fps;
+
+
+  fps = fopen(filename, "wb+");
+
+  if(fps == NULL){
+    printf("Error: copy file missing.");
+    return 0;
+  }
+
+  
+  
+  fwrite(buf, sizeof(unsigned char), sizeof(buf), fps);
+  
+
+  fclose(fps);
+  return 1;
+}

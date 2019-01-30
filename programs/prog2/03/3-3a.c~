@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main(){
+  char *name;
+
+  printf("input a word");
+  scanf("%s", name);
+
+
+  return 0;
+}

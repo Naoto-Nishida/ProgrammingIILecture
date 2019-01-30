@@ -1,0 +1,8 @@
+a7-2: a7-2.o matrix.o vector.o
+	cc -o a7-2 a7-2.o matrix.o vector.o
+.c.o:	# サフィックスルール。拡張子 .c から拡張子 .o のファイルを作るためのルール。
+	cc -c $<
+a7-2.o: a7-2.c headerB.h
+	cc -c a7-2.c headerB.h
+runA: a7-2
+	./a7-2

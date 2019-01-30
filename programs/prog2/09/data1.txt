@@ -1,0 +1,5 @@
+3
+10 hoge
+60 geho
+30 hage
+

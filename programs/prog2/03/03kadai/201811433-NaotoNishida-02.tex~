@@ -1,0 +1,253 @@
+\documentclass[10pt,a4paper]{jsarticle}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\lhead{プログラミング実習2レポート（第3回）}
+\rhead{学籍番号:201811433 氏名:西田　直人}
+\cfoot{\thepage/\pageref{LastPage}}
+
+\pagestyle{fancy}
+
+\title{プログラミング2レポート課題第3回}
+\author{西田直人}
+
+\begin{document}
+%\markright{プログラミング実習1Aレポート（第１回）　学籍番号:201811433 氏名:西田直人}
+%\maketitle
+\begin{center}
+{\LARGE プログラミング2レポート課題第3回} \\
+\large
+西田直人 \\ 2018年12月9日
+\end{center}
+\normalsize
+\section{課題3-1}
+
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a3-1.c}
+
+\subsection{result}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@ubuntu:~/prog2/03/03kadai$ cc -o a3-1 a3-1.c
+  s1811433@ubuntu:~/prog2/03/03kadai$ ./a3-1
+  Input:
+  string 1 =january
+  string 2 =february
+  string 3 =march
+  string 4 =april
+  string 5 =may
+  Output
+  may
+  april
+  march
+  january
+  february
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./a3-1
+  Input:
+  string 1 =monday
+  string 2 =tuesday
+  string 3 =wednesday
+  string 4 =thursday
+  string 5 =friday
+  Output
+  monday
+  friday
+  tuesday
+  thursday
+  wednesday
+  s1811433@ubuntu:~/prog2/03/03kadai$ 
+   
+
+\end{lstlisting}
+
+
+\section{課題3-2}
+a.
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{rand_message.c}
+
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P056:~/prog2/03/03kadai$ cc -o rand_message rand_message.c
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./rand_message クリリン
+  クリリン 24歳、衝撃のAVデビュー！本能のままに絶頂を貪る姿を曝け出す！！細いのにしっかりと引き締まった健康的な褐色ボディ。長い手脚、美巨乳、赤面しながらも、ちゃんと積極的なセックス。極度の緊張で、表情もギコチナイ…でも、その圧倒的なカラダが全てをカバーできてしまう。‘逸材だ’と、見ている内に気付かされる、最初で最後の処女作!!
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./rand_message 金森先生
+  金森先生くん。へたっぴさ........!欲望の解放のさせ方がへた....。本当に欲しいのは...焼き鳥(こっち)......これを下のレンジでチンして....ホッカホッカにしてさ......冷えたビールで飲(や)りたい......!だろ....？ フフ....。だけど......それはあまりに値が張るから....こっちの........しょぼい柿ピーでごまかそうって言うんだ.....。
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./rand_message 奥山
+  奥山が買ったのは..........ビール1本........!しかし1本飲んだらもう止まらない........!気が付けば..........豪遊っ....!2日続けて豪遊っ....!
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./rand_message 磯本さん
+  磯本さんが買ったのは..........ビール1本........!しかし1本飲んだらもう止まらない........!気が付けば..........豪遊っ....!2日続けて豪遊っ....!
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./rand_message 警備員
+  警備員が買ったのは..........ビール1本........!しかし1本飲んだらもう止まらない........!気が付けば..........豪遊っ....!2日続けて豪遊っ....!
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./rand_message 磯本さん
+  磯本さん......!ただ突っ立ているだけ....至福の傍観っ............!
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./rand_message 磯本さん
+  磯本さんが買ったのは..........ビール1本........!しかし1本飲んだらもう止まらない........!気が付けば..........豪遊っ....!2日続けて豪遊っ....!
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./rand_message 奥山
+  奥山には聞こえる・・・捨て牌三種の声・・・・・・
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./rand_message 本堂
+  本堂 24歳、衝撃のAVデビュー！本能のままに絶頂を貪る姿を曝け出す！！細いのにしっかりと引き締まった健康的な褐色ボディ。長い手脚、美巨乳、赤面しながらも、ちゃんと積極的なセックス。極度の緊張で、表情もギコチナイ…でも、その圧倒的なカラダが全てをカバーできてしまう。‘逸材だ’と、見ている内に気付かされる、最初で最後の処女作!!
+  s1811433@7C202-P056:~/prog2/03/03kadai$
+  
+\end{lstlisting}
+
+b.
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{my_command.c}
+
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P056:~/prog2/03/03kadai$ cc -o my_command my_command.c
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_command
+  Usage: ./my_command [-h name] [-s]
+  -h: say hello to 'name'
+  -s: print smiley mark
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_command -h anal
+  Hello!!anal!!
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_command -h
+  Error: missing name for ``-h'' option
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_command -s
+  (^-^)
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_command -s -h mogura
+  (^-^)
+  Hello!!mogura!!
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_command -h mogura -s
+  Hello!!mogura!!
+  (^-^)
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_command -h -s
+  Error: missing name for ``-h'' option
+  s1811433@7C202-P056:~/prog2/03/03kadai$
+\end{lstlisting}
+
+
+\section{課題3-3}
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{my_grep.c}
+
+\subsection{result}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P056:~/prog2/03/03kadai$ cc -o my_grep my_grep.c
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_grep
+  Usage: ./my_grep string filename
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_grep future sample.txt
+  4: Tell me can you see the future looking back at you?
+
+  7: Imagine the future, We shall go together,
+
+  9: Imagine the future, We shall go together,
+
+  10: Walk hand in hand, make a future that changes the world.
+
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./my_grep カイジ sample2.txt
+  1: 「フフ......へただなあ、カイジくん。へたっぴさ........!欲望の解放のさせ方がへた....。
+
+    2: カイジくんが本当に欲しいのは...焼き鳥(こっち)......これを下のレンジでチンして....ホッカホッカにしてさ......冷えたビールで飲(や)りたい......!だろ....？」
+
+  4: カイジくん、ダメなんだよ......!そ
+
+  11: カイジくん.....贅沢ってやつはさ........小出しはダメなんだ........!
+
+  s1811433@7C202-P056:~/prog2/03/03kadai$ 
+ 
+\end{lstlisting}
+
+\section{課題3-4}
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{replace_str.c}
+
+\subsection{result}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P056:~/prog2/03/03kadai$ cc -o replace_str replace_str.c
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./replace_str future TOMORROW sample.txt
+  High above the clouds, looking out into the sky, right before our eyes our lives are coming into shape.
+
+  With each breath we take, We find the reason why we've come together in this place.
+
+
+
+  Tell me can you see the TOMORROW looking back at you?
+  Tell me can you hear the message carried in the winds, to your heart?
+
+
+
+  Imagine the TOMORROW, We shall go together,
+  Our hearts joined as one, move ahead, take a step and carry on.
+
+  Imagine the TOMORROW, We shall go together,
+  Walk hand in hand, make a TOMORROW that changes the world.
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./replace_str you Nagata sample.txt
+  High above the clouds, looking out into the sky, right before our eyes our lives are coming into shape.
+
+  With each breath we take, We find the reason why we've come together in this place.
+
+
+
+  Tell me can Nagata see the future looking back at you?
+  Tell me can Nagata hear the message carried in the winds, to your heart?
+
+
+  Imagine the future, We shall go together,
+
+  Our hearts joined as one, move ahead, take a step and carry on.
+
+  Imagine the future, We shall go together,
+
+  Walk hand in hand, make a future that changes the world.
+
+  
+\end{lstlisting}
+
+\section{課題3-5}
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a3-5.c}
+
+\subsection{result}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P056:~/prog2/03/03kadai$ cc -o a3-5 a3-5.c
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./a3-5
+  Usage: ./a3-5 filename1 filename2
+  you can copy a file to another file. make sure that the destination file would be overwrited if there is already one.
+  filename1:the source(original) file
+  filename2:the destination file
+  s1811433@7C202-P056:~/prog2/03/03kadai$ cat sample2.txt
+  「フフ......へただなあ、カイジくん。へたっぴさ........!欲望の解放のさせ方がへた....。
+    カイジくんが本当に欲しいのは...焼き鳥(こっち)......これを下のレンジでチンして....ホッカホッカにしてさ......冷えたビールで飲(や)りたい......!だろ....？」
+  、「フフ....。だけど......それはあまりに値が張るから....こっちの........しょぼい柿ピーでごまかそうって言うんだ.....。
+    カイジくん、ダメなんだよ......!そ
+    ういうのが実にダメ....!
+    せっかく冷えたビールでスカッとしようって時に....その妥協は傷ましすぎる........!
+    そんなんでビールを飲んでもうまくないぞ......!
+    嘘じゃない。かえってストレスがたまる....!
+    食えなかった焼き鳥がチラついてさ..........全然スッキリしない....!
+    心の毒は残ったままだ、自分へのご褒美の出し方としちゃ最低さ....!
+    カイジくん.....贅沢ってやつはさ........小出しはダメなんだ........!
+    やる時はきっちりやった方がいい....!それでこそ次の節制の励みになるってもんさ....!
+    違うかい......？」
+  s1811433@7C202-P056:~/prog2/03/03kadai$ ./a3-5 sample2.txt sample3.txt
+  s1811433@7C202-P056:~/prog2/03/03kadai$ cat sample3.txt
+  「フフ......へただなあ、カイジくん。へたっぴさ........!欲望の解放のさせ方がへた....。
+    カイジくんが本当に欲しいのは...焼き鳥(こっち)......これを下のレンジでチンして....ホッカホッカにしてさ......冷えたビールで飲(や)りたい......!だろ....？」
+  、「フフ....。だけど......それはあまりに値が張るから....こっちの........しょぼい柿ピーでごまかそうって言うんだ.....。
+    カイジくん、ダメなんだよ......!そ
+    ういうのが実にダメ....!
+    せっかく冷えたビールでスカッとしようって時に....その妥協は傷ましすぎる........!
+    そんなんでビールを飲んでもうまくないぞ......!
+    嘘じゃない。かえってストレスがたまる....!
+    食えなかった焼き鳥がチラついてさ..........全然スッキリしない....!
+    心の毒は残ったままだ、自分へのご褒美の出し方としちゃ最低さ....!
+    カイジくん.....贅沢ってやつはさ........小出しはダメなんだ........!
+    やる時はきっちりやった方がいい....!それでこそ次の節制の励みになるってもんさ....!
+    違うかい......？」
+  s1811433@7C202-P056:~/prog2/03/03kadai$
+  
+\end{lstlisting}
+
+
+
+\end{document}

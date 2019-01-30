@@ -1,0 +1,22 @@
+#include <stdio.h>
+ 
+#define N 5
+ 
+int main(void)
+{
+    int a[N] = { 80, 60, 55, 22, 75 };
+    int i, *p;
+ 
+    printf("array access:\n");
+    /* 配列 a の各要素のアドレスと値を表示  */
+    putchar('\n');
+ 
+    /* 配列の先頭アドレスをポインタ p に代入 */
+ 
+    printf("%p: p\n\n", p);
+ 
+    printf("pointer access:\n");
+    /* ポインタ p を使って配列の各要素のアドレスと値を表示 */
+ 
+    return 0;
+}

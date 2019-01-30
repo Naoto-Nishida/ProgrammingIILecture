@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+
+
+typedef struct ImageData{
+  int width;
+  int height;
+  int channels;
+  char *data;
+} ImageData;
+
+int AllocateImage(ImageData *img, int _w, int _h, int _channels){
+
+  img->data = (char *)malloc(sizeof(data));
+  
+
+  

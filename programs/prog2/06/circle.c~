@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <>
+
+typedef struct Circle {
+  double x ;
+  double y;
+  double r;
+  char color[20];
+
+
+} Circle;
+
+int main(){
+  int i;
+  Circle 1;
+  Circle 2;
+  
+  for(i=0; i<2; i++){
+    printf("Input x and y coordinates, radius and color of cirle\n");
+    scanf("%lf %lf %lf $s", i.x, i.y, i.r, i.color);
+  }
+
+  putchar("\n");
+  
+  for(i=0; i<2; i++){
+    printf("Circle %d\n", i);
+    printf("Coordinate = (%lf,%lf), Radius = %lf, Color = %s\n", i.x, i.y, i.r, i.color);
+
+  }
+}

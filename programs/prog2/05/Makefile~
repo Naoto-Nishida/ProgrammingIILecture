@@ -1,0 +1,16 @@
+counter: counter_main.o counter.o		# counter は counter_main.o と counter.o に依存する
+	cc -o counter counter_main.o counter.o
+counter_main.o: counter_main.c counter.h	# counter_main.o は counter_main.c と counter.h に依存する
+	cc -c counter_main.c
+counter.o: counter.c				# counter.o は counter.c だけに依存する
+	cc -c counter.c# この行はコメント。# で始まる行はコメントになる
+
+prog: prog1.o prog2.o
+	cc -o prog prog1.o prog2.o -lm
+
+prog1.o: prog1.c
+	cc -c prog1.c
+
+prog2.o: prog2.c
+	cc -c prog2.c
+

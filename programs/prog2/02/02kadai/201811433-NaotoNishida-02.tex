@@ -1,0 +1,169 @@
+\documentclass[10pt,a4paper]{jsarticle}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\lhead{プログラミング実習2レポート（第2回）}
+\rhead{学籍番号:201811433 氏名:西田　直人}
+\cfoot{\thepage/\pageref{LastPage}}
+
+\pagestyle{fancy}
+
+\title{プログラミング2レポート課題第2回}
+\author{西田直人}
+
+\begin{document}
+%\markright{プログラミング実習1Aレポート（第１回）　学籍番号:201811433 氏名:西田直人}
+%\maketitle
+\begin{center}
+{\LARGE プログラミング2レポート課題第2回} \\
+\large
+西田直人 \\ 2018年11月27日
+\end{center}
+\normalsize
+\section{課題2-1}
+\subsection{誤っている箇所}
+\noindent31行目：for文内部を｛｝で囲んでいない。\\
+24行目：配列のアドレスを変更しようとしている。要素をinArrayからoutArrayに移したいなら要素ごとに＝で結ぶべき。
+
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a2-1.c}
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P048:~/prog2/02$ cc -o a2-1 a2-1.c
+  s1811433@7C202-P048:~/prog2/02$ ./a2-1
+  array a[]:
+  1 1 2 3 5
+  array b[]:
+  1 1 2 3 5
+  reverse of a[]:
+  5 3 2 1 1 
+  s1811433@7C202-P048:~/prog2/02$
+  
+\end{lstlisting}
+
+
+\section{課題2-2}
+\subsection{誤っている箇所}
+\noindent24行目：i=1となってしまっているのでa[0]の値が計算に含まれていない。\\
+24行目：for文の中身が{}でくくられていない。\\
+25行目：a[0]のアドレスの値を１ずつ増やしながらsumに加算しているという内容になってしまっている。\\
+20行目：sumが整数型になってしまっているので、sum/nが小数点以下切り捨てになってしまっている。
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a2-2.c}
+
+
+\subsection{result}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@7C202-P048:~/prog2/02/02kadai$ cc -o a2-2 a2-2.c
+  s1811433@7C202-P048:~/prog2/02/02kadai$ ./a2-2
+  average of a[]: 2.8
+  max value of a[]: 7
+  min value of a[]: -3
+  diff of max and min: 10
+  s1811433@7C202-P048:~/prog2/02/02kadai$
+  
+\end{lstlisting}
+
+\section{課題2-3}
+\subsection{source}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single]{a2-3.c}
+
+\subsection{result}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,frame=single]
+  s1811433@LI1RR-P003:~/prog2/02/02kadai$ cc -o a2-3 a2-3.c -lm
+  s1811433@LI1RR-P003:~/prog2/02/02kadai$ ./a2-3
+  Input a matrix> -1 4 5 3 0 -2 2 2 1
+  Input another matrix> 1 2 3 4 5 6 7 8 9
+  Matrix A:
+  -1.000000, 3.000000, 2.000000
+  4.000000, 0.000000, 2.000000
+  5.000000, -2.000000, 1.000000
+
+  Matrix B:
+  1.000000, 4.000000, 7.000000
+  2.000000, 5.000000, 8.000000
+  3.000000, 6.000000, 9.000000
+
+  determinant of A: -2.000000
+
+  Matrix AxB:
+  11.000000, 23.000000, 35.000000
+  10.000000, 28.000000, 46.000000
+  4.000000, 16.000000, 28.000000
+
+  Invert of matrix A:
+  -2.000000, 3.500000, -3.000000
+  -3.000000, 5.500000, -5.000000
+  4.000000, -6.500000, 6.000000
+
+  A * A^-1:
+  1.000000, 0.000000, 0.000000
+  0.000000, 1.000000, 0.000000
+  0.000000, 0.000000, 1.000000
+
+  input vector u>1 2 3
+  input vector v>2 3 4
+
+  dot(u, v): 20.000000
+  cross(u, v): (-1.000000, 2.000000, -1.000000)
+  normalized u: (0.267261, 0.534522, 0.801784)
+  normalized v: (0.371391, 0.557086, 0.742781)
+
+  rotation matrix R:
+  0.267261, 0.872872, -0.408248
+  0.534522, 0.218218, 0.816497
+  0.801784, -0.436436, -0.408248¥n
+  inverted rotation matrix R^-1:
+  0.267261, 0.534522, 0.801784
+  0.872872, 0.218218, -0.436436
+  -0.408248, 0.816497, -0.408248
+
+  s1811433@LI1RR-P003:~/prog2/02/02kadai$ ./a2-3
+  Input a matrix> 1 2 3 4 5 6 7 8 9
+  Input another matrix> 1 0 0 0 1 0 0 0 1
+  Matrix A:
+  1.000000, 4.000000, 7.000000
+  2.000000, 5.000000, 8.000000
+  3.000000, 6.000000, 9.000000
+
+  Matrix B:
+  1.000000, 0.000000, 0.000000
+  0.000000, 1.000000, 0.000000
+  0.000000, 0.000000, 1.000000
+
+  determinant of A: 0.000000
+
+  Matrix AxB:
+  1.000000, 4.000000, 7.000000
+  2.000000, 5.000000, 8.000000
+  3.000000, 6.000000, 9.000000
+
+  A^-1:
+  not invertible
+
+  input vector u>-1 2 2
+  input vector v>0 -1 1
+
+  dot(u, v): 0.000000
+  cross(u, v): (4.000000, 1.000000, 1.000000)
+  normalized u: (-0.333333, 0.666667, 0.666667)
+  normalized v: (0.000000, -0.707107, 0.707107)
+
+  rotation matrix R:
+  -0.333333, 0.000000, 0.942809
+  0.666667, -0.707107, 0.235702
+  0.666667, 0.707107, 0.235702
+  inverted rotation matrix R^-1:
+  -0.333333, 0.666667, 0.666667
+  0.000000, -0.707107, 0.707107
+  0.942809, 0.235702, 0.235702
+
+  s1811433@LI1RR-P003:~/prog2/02/02kadai$ 
+\end{lstlisting}
+
+
+
+\end{document}

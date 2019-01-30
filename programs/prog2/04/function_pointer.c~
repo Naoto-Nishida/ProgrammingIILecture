@@ -1,0 +1,23 @@
+#include <stdio.h>
+ 
+int add(int x, int y);
+int sub(int x, int y);
+ 
+int main(void)
+{
+    int a = 15, b = 5, ans;
+    int (*p)(int x, int y);     /* 関数ポインタ p を定義 */
+ 
+    p = add;           /* 関数ポインタ p に関数 add (のアドレス) を代入 */
+    ans = p(a, b);     /* 関数ポインタ p を関数として使用 */
+    printf("%d + %d = %d\n", a, b, ans);
+ 
+    p = sub;           /* 関数ポインタ p に関数 sub (のアドレス) を代入 */
+    ans = p(a, b);     /* 関数ポインタ p を関数として使用 */
+    printf("%d - %d = %d\n", a, b, ans);
+ 
+    return 0;
+}
+ 
+int add(int x, int y) { return x + y; }
+int sub(int x, int y) { return x - y; }

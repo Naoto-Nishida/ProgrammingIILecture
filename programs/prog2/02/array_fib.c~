@@ -1,0 +1,26 @@
+#include <stdio.h>
+ 
+void ArrayFib(int k, int a[])
+{
+    int i;
+ 
+    a[0] = a[1] = 1;
+ 
+    for (i = 2; i < k; i++)
+        a[i] = a[i-1] + a[i-2];
+}
+ 
+int main(void)
+{
+    int n = 10, i;
+    int *p = NULL;
+ 
+    ArrayFib(n, p);
+ 
+    printf("Fibonacci sequence up to %d-th:\n", n);
+    for (i = 0; i < n; i++)
+        printf("%d ", p[i]);
+    putchar('\n');
+ 
+    return 0;
+}
